@@ -140,18 +140,13 @@ public class GetraenkemarktView implements Observer {
 	}
 
 	private void initListener() {
-		btnEingabe.setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent e) {
-				getrCont.nehmeGetraenkemarktAuf();
-			}
-		});
-		btnAnzeige.setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent e) {
-				getrCont.zeigeGetraenkeMarktAn();
-			}
-		});
+		// Lambda Ausdruecke
+		
+		btnEingabe.setOnAction(e -> getrCont.nehmeGetraenkemarktAuf());
+		
+		btnAnzeige.setOnAction(e -> getrCont.zeigeGetraenkeMarktAn());
+
+
 		//mnItmCsvImport.setOnAction(new EventHandler<ActionEvent>() {
 		//	@Override
 		//	public void handle(ActionEvent e) {
@@ -159,21 +154,12 @@ public class GetraenkemarktView implements Observer {
 		//	}
 		//});
 		
-		// Lambda Ausdruck
 		mnItmCsvImport.setOnAction(e -> getrCont.leseAusDatei("csv"));
 		
-		mnItmTxtImport.setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent e) {
-				getrCont.leseAusDatei("txt");
-			}
-		});
-		mnItmCsvExport.setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent e) {
-				getrCont.schreibeGetraenkemarktInCsvDatei();
-			}
-		});
+		mnItmTxtImport.setOnAction(e -> getrCont.leseAusDatei("txt"));
+		
+		mnItmCsvExport.setOnAction(e -> getrCont.schreibeGetraenkemarktInCsvDatei());
+		
 	}
 
 	public void zeigeInformationsfensterAn(String meldung) {

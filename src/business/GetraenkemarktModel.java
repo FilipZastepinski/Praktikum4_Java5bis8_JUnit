@@ -15,7 +15,7 @@ import readers.*;
 public class GetraenkemarktModel implements Observable {
 
 	// Ersetzen mit ArrayList!
-//	public Getraenkemarkt getraenkemarkt;
+	//public Getraenkemarkt getraenkemarkt;
 	
 	public ArrayList<Getraenkemarkt> getraenkemarkt = new ArrayList<>();
 	
@@ -70,18 +70,21 @@ public class GetraenkemarktModel implements Observable {
 	}
 	// ----------------------------------------------------------------------------
 
+	// Anpassung ArrayList()
 	public void nehmeGetraenkemarktAuf(String artikelnummer, float einkaufspreis, float verkaufspreis,
 			String mitAlkohol, String[] behaeltnis) {
 		this.getraenkemarkt.add(new Getraenkemarkt(artikelnummer, einkaufspreis, verkaufspreis, mitAlkohol, behaeltnis));
 		notifyObservers(); // Observer werden benachrichtigt, wenn Getraenkemarkt aufgenommen wird
 	}
 
+	// Anpassung ArrayList()
 	// add
 	public void addGetraenkeMarkt(Getraenkemarkt getraenkemarkt) {
 		this.getraenkemarkt.add(getraenkemarkt);
 		notifyObservers();
 	}
 	
+	// Anpassung ArrayList()
 	public String zeigeGetraenkeMarktAn() {
 		if (this.getraenkemarkt != null) {
 			return this.getraenkemarkt.get(0).gibBehaeltnisZurueck(' ');
@@ -90,6 +93,7 @@ public class GetraenkemarktModel implements Observable {
 		}
 	}
 
+	// Anpassung ArrayList()
 	public void leseAusDatei(String typ) throws IOException {
 		String[] daten;
 
@@ -113,6 +117,7 @@ public class GetraenkemarktModel implements Observable {
 
 	}
 
+	// Anpassung ArrayList()
 	public void schreibeGetraenkemarktInCsvDatei() throws IOException {
 		BufferedWriter aus = new BufferedWriter(new FileWriter("GetraenkemaerkteAusgabe.csv", true));
 		aus.write(getraenkemarkt.get(0).gibBehaeltnisZurueck(';'));

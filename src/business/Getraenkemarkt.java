@@ -15,7 +15,7 @@ public class Getraenkemarkt {
 	private ArrayList<String> behaeltnis;
 	
 	
-	// Signatur darf nicht angepasst werden wegen der ArrayList<String> !!! 
+	// Signatur darf nicht angepasst werden wegen der ArrayList<String> !!!
 	public Getraenkemarkt(String artikelnummer, float einkaufspreis, float verkaufspreis, String mitAlkohol,
 			String[] behaeltnis) {
 		this.artikelnummer = artikelnummer;
@@ -23,7 +23,7 @@ public class Getraenkemarkt {
 		this.verkaufspreis = verkaufspreis;
 		this.mitAlkohol = mitAlkohol;
 		//this.behaeltnis.addAll(getBehaeltnis());
-		this.behaeltnis = setBehaeltnisAusStringArray(behaeltnis);
+		setBehaeltnisAusStringArray(behaeltnis);
 	}
 
 	public String getArtikelnummer() {
@@ -62,34 +62,34 @@ public class Getraenkemarkt {
 	public ArrayList<String> getBehaeltnis() {
 		return behaeltnis;
 	}
+	
 	// Anpassung ArrayList
 	public void setBehaeltnis(ArrayList<String> behaeltnis) {
 		this.behaeltnis = behaeltnis;
 	}
 	
-	
-	
 	// Methode, welche aus einem String-Array eine ArrayList<String>() erstellt und das Attribut behaeltnis belegt
 	private void setBehaeltnisAusStringArray(String [] behaeltnis) {
 		this.behaeltnis = new ArrayList<String>();
 		for(int i = 0; i < behaeltnis.length; i++) {
-			//Ergänzen
+			//Ergï¿½nzen
 			this.behaeltnis.add(i, behaeltnis[i]);
 			
 		}
 	}
 	
-	// Für ArrayList angepasst
+	// Fï¿½r ArrayList angepasst
 	public String getBehaeltnisAlsString(char trenner) {
 		String ergebnis = "";
 		int i = 0;
 		for (i = 0; i < this.getBehaeltnis().size() - 1; i++) {
 								// kein this.getBehaeltnis()[i] !
-			ergebnis = ergebnis + this.getBehaeltnis() + trenner;
-		}				// Auf indize this.getBehaeltnis()[i] muss nicht zugegriffen werden wegen ArrayList
-		return ergebnis + this.getBehaeltnis();
+			ergebnis = ergebnis + this.getBehaeltnis().get(i) + trenner;
+		}				// Auf indize this.getBehaeltnis.get(i) zugreifen wegen ArrayList
+		return ergebnis + this.getBehaeltnis().get(i);
 	}
 
+	
 	public String gibBehaeltnisZurueck(char trenner) {
 		return this.getArtikelnummer() + trenner + this.getEinkaufspreis() + trenner + this.getVerkaufspreis() + trenner
 				+ this.getMitAlkohol() + trenner + "\n" + this.getBehaeltnisAlsString(trenner) + "\n";

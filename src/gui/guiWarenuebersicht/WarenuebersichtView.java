@@ -61,7 +61,7 @@ public class WarenuebersichtView implements Observer {
 		lblAnzeigeGetraenke.setFont(font);
 		lblAnzeigeGetraenke.setStyle("-fx-font-weight: bold;");
 		pane.getChildren().add(lblAnzeigeGetraenke);
-// Textbereich
+		// Textbereich
 		txtAnzeigeGetraenke.setEditable(false);
 		txtAnzeigeGetraenke.setLayoutX(310);
 		txtAnzeigeGetraenke.setLayoutY(90);
@@ -87,9 +87,9 @@ public class WarenuebersichtView implements Observer {
 	private void zeigeGetraenkeAn() {
 		if (getrMod.getGetraenk().size() > 0) {
 			StringBuffer text = new StringBuffer();
-			// Ergänzen: for each - Schleife ueber ArrayList
-			for(int i = 0; i < getrMod.getGetraenk().size(); i++) {
-				text.append(getrMod.getGetraenk());
+			// Ergï¿½nzen: for each - Schleife ueber ArrayList
+			for(Getraenkemarkt getraenk : getrMod.getGetraenk()) {
+				text.append(getraenk.gibBehaeltnisZurueck(' ')); //.append("\n"); kann man noch ergaenzen
 			}
 		
 			this.txtAnzeigeGetraenke.setText(text.toString());
